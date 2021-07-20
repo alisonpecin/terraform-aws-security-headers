@@ -1,3 +1,8 @@
+variable "lambda_function_name" {
+  description = "Name of function"
+  default = "apply_security_headers"
+}
+
 variable "lambda_runtime" {
   description = "Version of Lambda runtime"
   default     = "nodejs12.x"

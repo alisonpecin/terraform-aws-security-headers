@@ -16,7 +16,7 @@ data "archive_file" "apply_security_headers" {
 
 resource "aws_lambda_function" "apply_security_headers" {
   filename         = "./lambda_function.zip"
-  function_name    = "apply_security_headers"
+  function_name    = var.lambda_function_name
   role             = aws_iam_role.short_url_lambda_iam.arn
   handler          = "lambda_function.handler"
   source_code_hash = data.archive_file.apply_security_headers.output_base64sha256
