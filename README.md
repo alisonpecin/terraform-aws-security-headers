@@ -1,5 +1,5 @@
 # Lambda@Edge Security Headers 
-Terraform that deploy Lambda@Edge to inject headers in CloudFront Distribution
+Terraform that deploy Lambda@Edge. This function intercepts requests to the cloudfront by inserting the security headers
 
 Provisioned resources:
 * Lambda Function
