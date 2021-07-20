@@ -59,3 +59,22 @@ exports.handler = (event, context, callback) => {
 };
 ```
 
+## How to configure this Lambda in CloudFront distribution
+In your code of CloudFront include this:
+```shell
+resource "aws_cloudfront_distribution" "example" {
+  # ... other configuration ...
+
+  # lambda_function_association is also supported by default_cache_behavior
+  ordered_cache_behavior {
+    # ... other configuration ...
+
+    lambda_function_association {
+      event_type   = "origin-response"
+      lambda_arn   = aws_lambda_function.example.qualified_arn
+      include_body = false
+    }
+  }
+}
+```
+
